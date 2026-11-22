@@ -1,5 +1,5 @@
 name: "danfoss2mqtt"
-version: "0.1.0-alpha.2"
+version: "0.1.0-alpha.3"
 slug: "danfoss2mqtt"
 description: "Standalone Danfoss Ally Cloud -> Mosquitto bridge speaking the Zigbee2MQTT dialect for Danfoss Companion v2."
 url: "https://github.com/aghulas/danfoss2mqtt"
@@ -39,6 +39,6 @@ schema:
   country_code: str
   region: list(eu|us|cn|in)
   sign_key: password
-  device_id: password
+  device_id: password?
   ch_key: password
   poll_interval: int(15,600)

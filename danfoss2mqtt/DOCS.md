@@ -14,7 +14,8 @@ L'intégration **[Danfoss Ally Companion (v2)](https://github.com/aghulas/ha-dan
 | `mqtt_host` / `mqtt_port` / `mqtt_username` / `mqtt_password` | Laisser `mqtt_host` vide pour auto-découvrir l'add-on **Mosquitto broker** de Home Assistant. |
 | `mqtt_tls` | Activer TLS vers le broker MQTT (défaut : `false`). |
 | `username`, `password`, `country_code`, `region` | Identifiants du compte Danfoss Ally / Smart Life. |
-| `sign_key`, `device_id`, `ch_key` | Secrets d'installation Danfoss Ally. |
+| `sign_key`, `ch_key` | Clés de signature de l'application Danfoss Ally. |
+| `device_id` | Optionnel — laissé vide, un identifiant unique de 44 caractères est généré et persisté automatiquement dans `/data/device_id`. |
 | `poll_interval` | Intervalle de rafraîchissement cloud en secondes (15 à 600, défaut : 60). |
 
 ## Contrat MQTT
