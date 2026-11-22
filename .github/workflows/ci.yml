@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate YAML manifests
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          repo = yaml.safe_load(Path("repository.yaml").read_text(encoding="utf-8"))
+          assert repo["name"] and "danfoss2mqtt" in repo["url"]
+
+          cfg = yaml.safe_load(Path("danfoss2mqtt/config.yaml").read_text(encoding="utf-8"))
+          assert cfg["slug"] == "danfoss2mqtt"
+          assert "mqtt:want" in cfg["services"]
+          assert set(cfg["options"]) == set(cfg["schema"])
+          print("YAML manifests OK:", cfg["version"])
+          PY
+
+      - name: Shellcheck run.sh
+        run: shellcheck -x danfoss2mqtt/run.sh
+
+      - name: Build Docker image & smoke-test CLI
+        run: |
+          docker build -t danfoss2mqtt:ci ./danfoss2mqtt
+          docker run --rm --entrypoint danfoss2mqtt danfoss2mqtt:ci --dry-run
