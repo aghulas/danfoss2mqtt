@@ -1,5 +1,5 @@
 name: "danfoss2mqtt"
-version: "0.1.0-alpha.5"
+version: "0.1.0"
 slug: "danfoss2mqtt"
 description: "Standalone Danfoss Ally Cloud -> Mosquitto bridge speaking the Zigbee2MQTT dialect for Danfoss Companion v2."
 url: "https://github.com/aghulas/danfoss2mqtt"
