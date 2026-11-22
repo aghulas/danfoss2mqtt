@@ -6,10 +6,10 @@ WORKDIR /app
 # Install pydanfoss-cloud[mqtt] (zero Home Assistant core dependency) from the pinned release tag.
 # gcc + musl-dev are installed only during the pip build (for pycryptodome on musl/ARM64) and
 # removed in the same layer to keep the final image small.
-ARG PYDANFOSS_REF="2.0.0-alpha.3"
+ARG PYDANFOSS_REF="v0.4.2"
 RUN apk add --no-cache git gcc musl-dev \
     && pip install --no-cache-dir \
-       "pydanfoss-cloud[mqtt] @ git+https://github.com/aghulas/ha-danfoss-ally.git@${PYDANFOSS_REF}" \
+       "pydanfoss-cloud[mqtt] @ git+https://github.com/aghulas/pydanfoss-cloud.git@${PYDANFOSS_REF}" \
     && apk del git gcc musl-dev
 
 COPY run.sh /run.sh
