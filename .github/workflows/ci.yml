@@ -24,13 +24,23 @@ jobs:
           assert cfg["slug"] == "danfoss2mqtt"
           assert "mqtt:want" in cfg["services"]
           assert set(cfg["options"]) == set(cfg["schema"])
-          print("YAML manifests OK:", cfg["version"])
+          print("danfoss2mqtt manifest OK:", cfg["version"])
+
+          coord = yaml.safe_load(Path("danfoss-room-coordinator/config.yaml").read_text(encoding="utf-8"))
+          assert coord["slug"] == "danfoss_room_coordinator"
+          assert "mqtt:want" in coord["services"]
+          assert set(coord["options"]) == set(coord["schema"])
+          print("danfoss-room-coordinator manifest OK:", coord["version"])
           PY
 
       - name: Shellcheck run.sh
-        run: shellcheck -x danfoss2mqtt/run.sh
+        run: |
+          shellcheck -x danfoss2mqtt/run.sh
+          shellcheck -x danfoss-room-coordinator/run.sh
 
       - name: Build Docker image & smoke-test CLI
         run: |
           docker build -t danfoss2mqtt:ci ./danfoss2mqtt
           docker run --rm --entrypoint danfoss2mqtt danfoss2mqtt:ci --dry-run
+          docker build -t danfoss-room-coordinator:ci ./danfoss-room-coordinator
+          docker run --rm --entrypoint danfoss-room-coordinator danfoss-room-coordinator:ci --dry-run
