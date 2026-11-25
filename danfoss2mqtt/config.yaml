@@ -1,5 +1,5 @@
 name: "danfoss2mqtt"
-version: "0.1.2"
+version: "0.1.4"
 slug: "danfoss2mqtt"
 description: "Standalone Danfoss Ally Cloud -> Mosquitto bridge speaking the Zigbee2MQTT dialect for Danfoss Companion v2."
 url: "https://github.com/aghulas/danfoss2mqtt"
@@ -27,6 +27,7 @@ options:
   device_id: ""
   ch_key: ""
   poll_interval: 60
+  cloud_mqtt_listen: false
 schema:
   base_topic: str
   mqtt_host: str?
@@ -42,3 +43,4 @@ schema:
   device_id: password?
   ch_key: password
   poll_interval: int(15,600)
+  cloud_mqtt_listen: bool?
