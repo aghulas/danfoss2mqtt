@@ -1,7 +1,7 @@
 name: "Danfoss Room Coordinator"
-version: "0.1.0"
+version: "0.2.0"
 slug: "danfoss_room_coordinator"
-description: "Standalone room coordinator daemon for Zigbee2MQTT Danfoss heads (virtual rooms, setpoints, heat demand)."
+description: "Standalone room coordinator daemon for Zigbee2MQTT Danfoss heads (virtual rooms, setpoints, sensor feed, schedules, settings, load balancing, holidays, heat demand)."
 url: "https://github.com/aghulas/danfoss2mqtt"
 arch:
   - aarch64
@@ -25,6 +25,15 @@ options:
   armed_rooms: []
   setpoint_timeout_s: 30.0
   setpoint_retries: 2
+  feed_external_sensor: false
+  mode_change_keeps_schedule: false
+  reconcile_drift: false
+  feed_load_mean: false
+  enable_holidays: false
+  propagate_window_open: false
+  window_open_max_duration_s: 1800.0
+  tick_interval_s: 15.0
+  max_writes_per_tick: 0
 schema:
   source_prefix: str
   base_topic: str
@@ -39,3 +48,12 @@ schema:
     - str
   setpoint_timeout_s: float(5.0,120.0)?
   setpoint_retries: int(0,5)?
+  feed_external_sensor: bool?
+  mode_change_keeps_schedule: bool?
+  reconcile_drift: bool?
+  feed_load_mean: bool?
+  enable_holidays: bool?
+  propagate_window_open: bool?
+  window_open_max_duration_s: float(60.0,14400.0)?
+  tick_interval_s: float(1.0,300.0)?
+  max_writes_per_tick: int(0,100)?
