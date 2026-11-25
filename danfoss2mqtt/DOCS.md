@@ -17,6 +17,7 @@ The **[Danfoss Ally Companion (v2)](https://github.com/aghulas/ha-danfoss-ally)*
 | `sign_key`, `ch_key` | Danfoss Ally mobile app signature keys. |
 | `device_id` | Optional — if left empty, a unique 44-character device ID is automatically generated and persisted in `/data/device_id`. |
 | `poll_interval` | Cloud polling interval in seconds (15 to 600, default: 60). |
+| `cloud_mqtt_listen` | Open a listen-only Tuya cloud-MQTT link so DP 199 pushes feed the read-state overlay in real time (default: `false`). |
 
 ## MQTT Contract
 
