@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Install pydanfoss-cloud[mqtt] (zero Home Assistant core dependency) from PyPI, pinned by version.
 # gcc + musl-dev are installed only during the pip build and removed in the same layer.
-ARG PYDANFOSS_VERSION="0.7.1"
+ARG PYDANFOSS_VERSION="0.7.2"
 RUN apk add --no-cache gcc musl-dev \
     && pip install --no-cache-dir \
        "pydanfoss-cloud[mqtt]==${PYDANFOSS_VERSION}" \
