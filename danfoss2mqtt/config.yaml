@@ -28,6 +28,8 @@ options:
   ch_key: ""
   poll_interval: 60
   cloud_mqtt_listen: false
+  head_settings_writes: false
+  head_settings_trial_head: ""
 schema:
   base_topic: str
   mqtt_host: str?
@@ -44,3 +46,5 @@ schema:
   ch_key: password
   poll_interval: int(15,600)
   cloud_mqtt_listen: bool?
+  head_settings_writes: bool?
+  head_settings_trial_head: str?
