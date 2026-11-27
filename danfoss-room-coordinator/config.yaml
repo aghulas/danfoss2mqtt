@@ -1,5 +1,5 @@
 name: "Danfoss Room Coordinator"
-version: "0.2.2"
+version: "0.2.3"
 slug: "danfoss_room_coordinator"
 description: "Standalone room coordinator daemon for Zigbee2MQTT Danfoss heads (virtual rooms, setpoints, sensor feed, schedules, settings, load balancing, holidays, heat demand)."
 url: "https://github.com/aghulas/danfoss2mqtt"
