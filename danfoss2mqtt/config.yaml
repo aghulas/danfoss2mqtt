@@ -32,6 +32,8 @@ options:
   head_settings_trial_head: ""
   relay_links_writes: false
   relay_links_trial_relay: ""
+  sensor_rooms_writes: false
+  sensor_rooms_trial_sensor: ""
 schema:
   base_topic: str
   mqtt_host: str?
@@ -52,3 +54,5 @@ schema:
   head_settings_trial_head: str?
   relay_links_writes: bool?
   relay_links_trial_relay: str?
+  sensor_rooms_writes: bool?
+  sensor_rooms_trial_sensor: str?
